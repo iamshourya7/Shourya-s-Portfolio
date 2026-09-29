@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shourya Gupta | Portfolio</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ---------------------------------
+       ROOT VARIABLES & RESET
+    --------------------------------- */
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.25);
+      --accent: #818cf8;
+      --text: #f3f4f6;
+      --text-muted: #94a3b8;
+      --success: #34d399;
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ---------------------------------
+       HEADER & NAVIGATION
+    --------------------------------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(9, 13, 22, 0.8);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand span {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ---------------------------------
+       HERO SECTION
+    --------------------------------- */
+    .hero {
+      max-width: 1100px;
+      margin: 4rem auto 6rem;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--primary);
+    }
+
+    .badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #ffffff 40%, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #090d16;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 20px var(--primary-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--card-border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* ---------------------------------
+       SECTIONS GENERAL
+    --------------------------------- */
+    section {
+      max-width: 1100px;
+      margin: 0 auto 5rem;
+      padding: 0 1.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-header h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--card-border);
+      max-width: 200px;
+    }
+
+    /* ---------------------------------
+       SKILLS SECTION
+    --------------------------------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .skill-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .skill-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* ---------------------------------
+       PROJECTS SECTION
+    --------------------------------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      border-color: rgba(129, 140, 248, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .project-header h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      color: var(--primary);
+    }
+
+    /* ---------------------------------
+       ACADEMICS / HIGHLIGHTS SECTION
+    --------------------------------- */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .highlight-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+    }
+
+    .highlight-val {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.03em;
+    }
+
+    .highlight-label {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ---------------------------------
+       CONTACT SECTION & FOOTER
+    --------------------------------- */
+    .contact-box {
+      background: linear-gradient(180deg, var(--card-bg) 0%, rgba(9, 13, 22, 0.9) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-box p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="brand">
+        <span>SG</span> | Shourya Gupta
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="badge">
+      <span class="dot"></span>
+      Aspiring Computer Science & Engineering Student
+    </div>
+    <h1>
+      Hi, I'm <span>Shourya Gupta</span>.
+    </h1>
+    <p>
+      An engineering aspirant with a passion for software development, problem-solving, 
+      and exploring modern technologies in Python, SQL, and web fundamentals.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="#projects" class="btn btn-secondary">View Work</a>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="section-header">
+      <h2>Technical Skillset</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3 class="skill-title">Python</h3>
+        <p class="skill-desc">Logical problem solving, algorithmic challenges, scripting, and application basics.</p>
+      </div>
+      <div class="skill-card">
+        <h3 class="skill-title">SQL & Databases</h3>
+        <p class="skill-desc">Relational querying, schema design, table management, and data extraction.</p>
+      </div>
+      <div class="skill-card">
+        <h3 class="skill-title">Web Basics</h3>
+        <p class="skill-desc">Semantic HTML5, responsive CSS layouts, styling systems, and modern layouts.</p>
+      </div>
+      <div class="skill-card">
+        <h3 class="skill-title">Analytical Thinking</h3>
+        <p class="skill-desc">Mathematics background applied to structured data analysis and core computing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Database Records Manager</h3>
+          <p>A structured relational management utility designed to query, sort, and organize dataset tables efficiently.</p>
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Python</span>
+            <span class="tag">RDBMS</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Cricket Statistics & Match Tracker</h3>
+          <p>An interactive analytical dashboard exploring batting averages, run rates, and match insights.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Data Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Personal Portfolio Website</h3>
+          <p>A lightweight, responsive developer portfolio showcasing technical background and milestones.</p>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Responsive</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education / Academic Highlights -->
+  <section id="education">
+    <div class="section-header">
+      <h2>Academic Highlights</h2>
+    </div>
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-val">92%</div>
+        <div class="highlight-label">Senior Secondary Boards</div>
+        <div class="highlight-desc">Strong foundation in Mathematics, Computing, and Analytical Sciences.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-val">97</div>
+        <div class="highlight-label">Informatics Practices</div>
+        <div class="highlight-desc">Demonstrated high proficiency in database management and programming concepts.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-val">95</div>
+        <div class="highlight-label">Mathematics</div>
+        <div class="highlight-desc">Focus on calculus, vectors, algebra, and quantitative problem solving.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact-box">
+      <h3>Let's Connect</h3>
+      <p>Interested in collaborating, technical discussions, or exploring engineering opportunities? Feel free to reach out.</p>
+      <a href="mailto:contact@example.com" class="btn btn-primary">Say Hello</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Shourya Gupta. Designed with clean HTML & CSS.</p>
+  </footer>
+
+</body>
+</html>
